@@ -6,7 +6,9 @@
     <classes>
       <class name="com.emergya.testSets.GoogleTestSet">
         <methods>
-          <include name="googleDoSearchAndAccessToPage" />
+          <include name="googleDoSearchAndAccessToPageTiendas" />
+          <include name="googleDoSearchAndAccessToPageAccesos" />
+          <include name="googleDoSearchAndAccessToPageCine" />
         </methods>
       </class>
     </classes>
