@@ -162,7 +162,7 @@ public class GoogleMainPage extends BasePageObject {
 		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnPage method");
 		return new LosArcosMainPage(driver);
 	}
-	
+
 	/**
 	 * This method click on NoTodoCodigo page
 	 * 
@@ -171,16 +171,48 @@ public class GoogleMainPage extends BasePageObject {
 	public NoTodoCodigoMainPage clickOnNoTodoCodigoPage() {
 		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start clickOnPage method");
 
-	
-		String xpathLink ="//h3[@class='r']/a[contains(@href,'http://www.notodocodigo.com/')]";
-	
-		//List<WebElement> lista = driver.findElementsByXPath(xpathLink);
-		//lista.get(0).click();
-		 driver.clickIfExists(By.xpath(xpathLink));
+		String xpathLink = "//h3[@class='r']/a[contains(@href,'http://www.notodocodigo.com/')]";
+
+		// List<WebElement> lista = driver.findElementsByXPath(xpathLink);
+		// lista.get(0).click();
+		driver.clickIfExists(By.xpath(xpathLink));
 
 		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnPage method");
 		return new NoTodoCodigoMainPage(driver);
 	}
+
+	/**
+	 * This method click on www.zamzar.com page
+	 * 
+	 * @return
+	 */
+	public UploadImageMainPage clickOnUploadImagePage() {
+		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start clickOnUploadImagePage method");
+
+		String xpathLink = "//h3[@class='r']/a[contains(@href,'https://www.zamzar.com')]";
+		driver.clickIfExists(By.xpath(xpathLink));
+
+		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnUploadImagePage method");
+		return new UploadImageMainPage(driver);
+	}
+
+	/**
+	 * This method click on stackoverflow.com page
+	 * 
+	 * @return
+	 */
+
+	public StackOverFlowMainPage clickOnStackOverFlowPage() {
+		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start clickOnStackOverFlowPage method");
+
+		String xpathLink = "//h3[@class='r']/a[contains(@href,'https://stackoverflow.com/')]";
+
+		driver.clickIfExists(By.xpath(xpathLink));
+
+		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnStackOverFlowPage method");
+		return new StackOverFlowMainPage(driver);
+	}
+	
 	
 
 }

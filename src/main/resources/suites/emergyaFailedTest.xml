@@ -9,6 +9,8 @@
           <include name="googleDoSearchAndAccessToPageTiendas" />
           <include name="googleDoSearchAndAccessToPageAccesos" />
           <include name="googleDoSearchAndAccessToPageCine" />
+          <include name="googleDoSearchAndAccessToPageNoTodoCodigo" />
+          <include name="googleDoSearchAndAccessToPageStackOverFlow" />
         </methods>
       </class>
     </classes>

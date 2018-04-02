@@ -5,13 +5,36 @@
 	<test name="GoogleTest" order-by-instances="true">
 		<classes>
 			<class name="com.emergya.testSets.GoogleTestSet">
+				<!--<class name="com.emergya.testSets.OwnTestSet"> -->
 				<methods>
 					<!-- <include name="googleMainPageSearch" /> -->
-					<include name="googleDoSearchAndAccessToPage" />
-					<include name="googleDoSearchAndAccessToPageNoTodoCodigo" />
+					<!-- <include name="googleDoSearchAndAccessToPage" /> -->
+					<!-- <include name="googleDoSearchAndAccessToPageNoTodoCodigo" /> -->
+					<!-- <include name="googleDoSearchAndAccessToPageUploadImage" /> -->
+					<!-- <include name="googleDoSearchAndAccessToPageStackOverFlow" /> -->
 					<!-- <include name="googleDoSearchAndAccessToPageAccesos" /> -->
 					<!-- <include name="googleDoSearchAndAccessToPageCine" /> -->
 					<!-- <include name="googleDoSearchAndAccessToPageTiendas" /> -->
+					<!-- <include name="googleDoSearchAndAccessToPageTesting" /> -->
+					<!-- <include name="googleDoSearchAndAccessToPageTestingAlerts" /> -->
+					<!-- <include name="moveToSliderTesting" /> -->
+					<!-- <include name="checkBoxTest" /> -->
+					<!-- <include name="accesJQueryUIPage" /> -->
+					<!--<include name="AccesToPageDragDropTest" /> -->
+					<!--<include name="AccesToPageResizableTest" /> -->
+					<!--<include name="AccesToPageDropableTest"/> -->
+					<!--<include name="AccesToPageControlGroupTest"/> -->
+					<!-- <include name="AccesToPageSelectMenu"/> -->
+					<!--<include name="CheckBoxMainPage"/> -->
+					<!-- <include name="ProgressBarTest"/> -->
+					<!--<include name="ColorBarTest" /> -->
+					<!-- <include name="toolTipTest" /> -->
+					<include name="controlChangeColor" />
+
+
+
+
+
 				</methods>
 			</class>
 		</classes>

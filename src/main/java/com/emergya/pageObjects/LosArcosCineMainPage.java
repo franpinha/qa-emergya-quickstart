@@ -58,6 +58,8 @@ public class LosArcosCineMainPage extends BasePageObject {
 		String xpathLink = "//*[@id='pictoHome']/li[1]/a";
 
 		driver.moveMouseOverElement(By.xpath(xpathLink));
+		
+		
 
 		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnPage method");
 		return new LosArcosTiendasMainPage(driver);
