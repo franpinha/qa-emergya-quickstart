@@ -1,4 +1,4 @@
-package com.emergya.pageObjects;
+package com.emergya.pageobjects;
 
 import org.apache.log4j.Logger;
 
@@ -33,8 +33,10 @@ public class JQueryProgressBarMainPage extends BasePageObject {
 
 	public boolean isReadyLogoProgressBar() {
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start isReadyLogoProgressBar method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End isReadyLogoProgressBar method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ "]- Start isReadyLogoProgressBar method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ "]- End isReadyLogoProgressBar method");
 
 		return this.isElementVisibleById(LOGO);
 	}
@@ -81,11 +83,7 @@ public class JQueryProgressBarMainPage extends BasePageObject {
 
 		// obtain the progressbar id and select it.
 		WebElement bar = this.getElementByXPath(BAR2);
-		String color = bar.getAttribute("style");
-		System.err.println("el color es" + color);
-		// String colorSplit = color.substring(24,43);
-
-
+		log.info(bar);
 		driver.sleep(2);
 
 		// go to the default page
@@ -97,10 +95,6 @@ public class JQueryProgressBarMainPage extends BasePageObject {
 		js.executeScript("arguments[0].scrollIntoView();", doUp);
 		driver.sleep(2);
 
-		
-
 	}
-
-
 
 }

@@ -1,4 +1,6 @@
-package com.emergya.pageObjects;
+package com.emergya.pageobjects;
+
+import java.awt.AWTException;
 
 import org.apache.log4j.Logger;
 
@@ -40,17 +42,18 @@ public class UploadImageMainPage extends BasePageObject {
 	@Override
 	public boolean isReady() {
 
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - Start isReady method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ " - Start isReady method");
 
 		boolean status = this.isElementVisibleById(ELEMENT);
 
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - End isReady method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ " - End isReady method");
 
 		return status;
 
 	}
 
-	// Page object methods
 	/**
 	 * Check if FineUploader page is displayed
 	 * 
@@ -58,8 +61,10 @@ public class UploadImageMainPage extends BasePageObject {
 	 */
 	public boolean isUploadImagePageDisplayed() {
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start isUploadImagePageDisplayed method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End isUploadImagePageDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ "]- Start isUploadImagePageDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ "]- End isUploadImagePageDisplayed method");
 
 		return this.isElementVisibleById(ELEMENT);
 	}
@@ -71,14 +76,21 @@ public class UploadImageMainPage extends BasePageObject {
 	 * 
 	 */
 	public UploadImageMainPage clickOnUploadFiles() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start clickOnUploadFiles method");
-		MyBasePageObject my = new MyBasePageObject();
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ "]- Start clickOnUploadFiles method");
+		MyBasePageObject my = new MyBasePageObject(driver);
 
 		this.getElementByXPath(UPLOADBUTTON).click();
 
-		my.uploadArchive("tux.jpg");
+		try {
+			my.uploadArchive("tux.jpg");
+		} catch (AWTException e) {
+			// TODO Auto-generated catch block
+	log.warn(e.getMessage());
+		}
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnUploadFiles method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ "]- End clickOnUploadFiles method");
 		return new UploadImageMainPage(driver);
 	}
 }

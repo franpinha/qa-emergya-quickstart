@@ -1,4 +1,6 @@
-package com.emergya.pageObjects;
+package com.emergya.pageobjects;
+
+import java.util.logging.Level;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -29,9 +31,9 @@ public class CheckBoxMainPage extends BasePageObject {
 	}
 
 	public boolean isReadyLogoCheckbox() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
 				+ "]- Start isJQueryLogoSelectMenuDisplayed method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
 				+ "]- End isJQueryLogoSelectMenuDisplayed method");
 
 		return this.isElementVisibleById(LOGO);
@@ -46,9 +48,9 @@ public class CheckBoxMainPage extends BasePageObject {
 		boolean selected = driver.findElement(By.cssSelector(PARIS)).isSelected();
 		if (!selected) {
 			driver.findElement(By.cssSelector(PARIS)).click();
-			System.err.println(" SELECCIONAMOS");
+			
 		} else {
-			System.err.println("NO ESTABA SELECCIONADO");
+			log.warn(Level.WARNING);
 		}
 
 		driver.sleep(2);

@@ -1,4 +1,4 @@
-package com.emergya.pageObjects;
+package com.emergya.pageobjects;
 
 import org.apache.log4j.Logger;
 
@@ -38,12 +38,12 @@ public class EmergyaMainPage extends BasePageObject {
      */
     @Override
     public boolean isReady() {
-        log.info("[log-PageObjects] " + this.getClass().getSimpleName()
+        log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
                 + " - Start isReady method");
 
         boolean status = this.isElementVisibleById(IMG_LOGO_EMERGYA);
 
-        log.info("[log-PageObjects] " + this.getClass().getSimpleName()
+        log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
                 + " - End isReady method");
 
         return status;
@@ -55,9 +55,9 @@ public class EmergyaMainPage extends BasePageObject {
      * @return
      */
     public boolean isEmergyaLogoDisplayed() {
-        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+        log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
                 + "]- Start isEmergyaLogoDisplayed method");
-        log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+        log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
                 + "]- End isEmergyaLogoDisplayed method");
 
         return this.isElementVisibleById(IMG_LOGO_EMERGYA);

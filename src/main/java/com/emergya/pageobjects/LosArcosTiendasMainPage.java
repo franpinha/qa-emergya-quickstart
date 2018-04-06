@@ -1,4 +1,4 @@
-package com.emergya.pageObjects;
+package com.emergya.pageobjects;
 
 import org.apache.log4j.Logger;
 
@@ -38,27 +38,27 @@ public class LosArcosTiendasMainPage extends BasePageObject {
 	 */
 	@Override
 	public boolean isReady() {
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - Start isReady method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + " - Start isReady method");
 
 		boolean status = this.isElementVisibleById(TIENDAS);
 
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - End isReady method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + " - End isReady method");
 
 		return status;
 	}
 
 	public boolean isLosArcosTiendasDisplayed() {
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start isLosArcosTiendasDisplayed method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End isLosArcosTiendasDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start isLosArcosTiendasDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End isLosArcosTiendasDisplayed method");
 
 		return this.isElementVisibleByXPath(TIENDAS);
 	}
 	
 	public boolean isLosArcosDeportesDisplayed() {
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start isLosArcosDeportesDisplayed method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End isLosArcosDeportesDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start isLosArcosDeportesDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End isLosArcosDeportesDisplayed method");
 
 		return this.isElementVisibleByXPath(DEPORTES);
 	}

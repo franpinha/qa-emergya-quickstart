@@ -1,4 +1,4 @@
-package com.emergya.pageObjects;
+package com.emergya.pageobjects;
 
 
 
@@ -40,8 +40,8 @@ public class LosArcosCineMainPage extends BasePageObject {
 	 */
 	public boolean isLosArcosCinesDisplayed() {
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start isLosArcosCinesDisplayed method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End isLosArcosCinesDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start isLosArcosCinesDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End isLosArcosCinesDisplayed method");
 
 		return this.isElementVisibleByXPath(CINES);
 	}
@@ -52,8 +52,8 @@ public class LosArcosCineMainPage extends BasePageObject {
 	 * @return
 	 * @throws InterruptedException
 	 */
-	public LosArcosTiendasMainPage moveOnLosArcosTiendasPage() throws InterruptedException {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start clickOnPage method");
+	public LosArcosTiendasMainPage moveOnLosArcosTiendasPage() {
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start clickOnPage method");
 
 		String xpathLink = "//*[@id='pictoHome']/li[1]/a";
 
@@ -61,19 +61,19 @@ public class LosArcosCineMainPage extends BasePageObject {
 		
 		
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnPage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End clickOnPage method");
 		return new LosArcosTiendasMainPage(driver);
 
 	}
 
 	public LosArcosTiendasMainPage clickOnLosArcosTiendasPage() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start clickOnPage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start clickOnPage method");
 
 		String xpathLink = "//*[@id='pictoHome']/li[1]/ul/li[6]/a";
 
 		driver.clickIfExists(By.xpath(xpathLink));
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnPage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End clickOnPage method");
 		return new LosArcosTiendasMainPage(driver);
 
 	}

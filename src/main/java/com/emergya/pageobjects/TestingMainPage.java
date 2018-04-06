@@ -1,4 +1,6 @@
-package com.emergya.pageObjects;
+package com.emergya.pageobjects;
+
+import java.util.logging.Level;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -20,13 +22,10 @@ public class TestingMainPage extends BasePageObject {
 	 */
 
 	private static final String LOGO = "logotesting";
-	private static final String IMAGEMOVE = "imagemove";
 	private static final String IFRAME_XPATH = "iframe";
 	private static final String LOGOQUERY = "logoquery";
-	private static final String ZONEDROP = "//*[@id='content']/iframe";
 	private static final String RESIZABLE = " //*[@id='resizable']/div[3]";
 	private static final String FRAME = "//*[@id='content']/iframe";
-	private static final String FRAMEDROPPABLE = "//*[@id='content']/iframe";
 	private static final String DRAGGABLE = "draggable";
 	private static final String DROPAREA = "droppable";
 	/**
@@ -61,8 +60,8 @@ public class TestingMainPage extends BasePageObject {
 	private static final String CAMPODAY = "#daybox";
 	private static final String CAMPODAY3 = "#daybox > option:nth-child(4)";
 	// Items for Password and ConfirmPassword
-	private static final String CAMPOPASSWORD = "#firstpassword";
-	private static final String CAMPOCONFIRMPASSWORD = "#secondpassword";
+	private static final String CAMPOCONT = "#firstpassword";
+	private static final String CAMPOCONFIRMCONT = "#secondpassword";
 	// Item for Confirm Button
 	private static final String BOTONSUBMIT = "#submitbtn";
 
@@ -90,18 +89,13 @@ public class TestingMainPage extends BasePageObject {
 	@Override
 	public boolean isReady() {
 
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - Start isReady method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ " - Start isReady method");
 
 		boolean status = driver.isElementDisplayed(By.xpath(LOGO));
 
-		if (driver.isElementDisplayed(By.xpath("//*[@id='header']/div/div/div/div[2]"))) {
-			System.err.println("se ve por xpath");
-		} else {
-
-			System.err.println("no se ve por xpath");
-		}
-
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - End isReady method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ " - End isReady method");
 
 		return status;
 
@@ -109,10 +103,11 @@ public class TestingMainPage extends BasePageObject {
 
 	public boolean isTestingPageDisplayed() {
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start isTestingPageDisplayed method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End isTestingPageDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ "]- Start isTestingPageDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ "]- End isTestingPageDisplayed method");
 
-		// return this.isElementVisibleByXPath(LOGO);
 		return this.isElementVisibleByXPath(LOGOQUERY);
 	}
 
@@ -204,41 +199,35 @@ public class TestingMainPage extends BasePageObject {
 	public boolean selectLanguages() {
 		boolean status = false;
 		if (driver.isElementDisplayed(By.cssSelector(CAMPOLANGUAGE))) {
-			try {
+		
 				log.info("The field Languages is  visible");
 				driver.findElement(By.cssSelector(CAMPOLANGUAGE)).click();
-				// Thread.sleep(1000);
 
 				driver.findElement(By.cssSelector(CAMPOCLICKENGLISH)).click();
-				Thread.sleep(1000);
+				driver.sleep(1);
 				log.info("The language selected is English");
 
 				driver.findElement(By.cssSelector(CAMPOCLICKFUERA)).click();
 
 				status = true;
-			} catch (InterruptedException ie) {
-				log.warn(ie.getMessage());
-			}
-		} else {
-			log.error("The field Languages is not visible");
+
 		}
+		
 		return status;
 	}
 
 	public boolean selectSkills() {
 		boolean status = false;
 		if (driver.isElementDisplayed(By.cssSelector(CAMPOSKILLS))) {
-			try {
+			
 				log.info("The field Skills is  visible");
 
 				driver.findElement(By.cssSelector(CAMPOANDROID)).click();
-				Thread.sleep(5000);
+				driver.sleep(5);
 				log.info("The skill selected is Android");
 
 				status = true;
-			} catch (InterruptedException ie) {
-				log.warn(ie.getMessage());
-			}
+			
 		} else {
 			log.error("The field Skills is not visible");
 		}
@@ -248,17 +237,15 @@ public class TestingMainPage extends BasePageObject {
 	public boolean selectCountry() {
 		boolean status = false;
 		if (driver.isElementDisplayed(By.cssSelector(CAMPOCOUNTRY))) {
-			try {
+			
 				log.info("The field Country is  visible");
 
 				driver.findElement(By.cssSelector(CAMPOCOUNTRYDJIBOUTI)).click();
-				Thread.sleep(5000);
+				driver.sleep(5);
 				log.info("The country selected is Djibouti");
 
 				status = true;
-			} catch (InterruptedException ie) {
-				log.warn(ie.getMessage());
-			}
+			
 		} else {
 			log.error("The field Country is not visible");
 		}
@@ -268,17 +255,15 @@ public class TestingMainPage extends BasePageObject {
 	public boolean selectCountry2() {
 		boolean status = false;
 		if (driver.isElementDisplayed(By.cssSelector(CAMPOCOUNTRY2))) {
-			try {
+			
 				log.info("The field Select Country is  visible");
 
 				driver.findElement(By.cssSelector(CAMPOCOUNTRY2UNITED)).click();
-				Thread.sleep(4000);
+				driver.sleep(4);
 				log.info("The country selected is United States");
 
 				status = true;
-			} catch (InterruptedException ie) {
-				log.warn(ie.getMessage());
-			}
+		
 		} else {
 			log.error("The field Select Country is not visible");
 		}
@@ -290,24 +275,22 @@ public class TestingMainPage extends BasePageObject {
 		if (driver.isElementDisplayed(By.cssSelector(CAMPOYEAR))
 				&& driver.isElementDisplayed(By.cssSelector(CAMPOMONTH))
 				&& driver.isElementDisplayed(By.cssSelector(CAMPODAY))) {
-			try {
+			
 				log.info("The field Year, Month and Day are visible");
 
 				driver.findElement(By.cssSelector(CAMPOYEAR1928)).click();
-				Thread.sleep(1000);
+				driver.sleep(1);
 				log.info("The Year is selected");
 
 				driver.findElement(By.cssSelector(CAMPOMONTH9)).click();
-				Thread.sleep(1000);
+				driver.sleep(1);
 				log.info("The Month is selected");
 
 				driver.findElement(By.cssSelector(CAMPODAY3)).click();
 				log.info("The Day is selected");
 
 				status = true;
-			} catch (InterruptedException ie) {
-				log.warn(ie.getMessage());
-			}
+			
 		} else {
 			log.error("The field Select Country is not visible");
 		}
@@ -316,9 +299,9 @@ public class TestingMainPage extends BasePageObject {
 
 	public boolean writePassword(String password) {
 		boolean status = false;
-		if (driver.isElementDisplayed(By.cssSelector(CAMPOPASSWORD))) {
+		if (driver.isElementDisplayed(By.cssSelector(CAMPOCONT))) {
 			log.info("The field Password is  visible");
-			driver.findElement(By.cssSelector(CAMPOPASSWORD)).sendKeys(password);
+			driver.findElement(By.cssSelector(CAMPOCONT)).sendKeys(password);
 			status = true;
 		} else {
 			log.error("The field Password is not visible");
@@ -328,9 +311,9 @@ public class TestingMainPage extends BasePageObject {
 
 	public boolean writeConfirmPassword(String password) {
 		boolean status = false;
-		if (driver.isElementDisplayed(By.cssSelector(CAMPOCONFIRMPASSWORD))) {
+		if (driver.isElementDisplayed(By.cssSelector(CAMPOCONFIRMCONT))) {
 			log.info("The field Confirm Password is  visible");
-			driver.findElement(By.cssSelector(CAMPOCONFIRMPASSWORD)).sendKeys(password);
+			driver.findElement(By.cssSelector(CAMPOCONFIRMCONT)).sendKeys(password);
 			status = true;
 		} else {
 			log.error("The field Confirm Password is not visible");
@@ -344,7 +327,8 @@ public class TestingMainPage extends BasePageObject {
 	 * @return
 	 */
 	public TestingWebMainPage clickOnSubmitButton() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start clickOnPage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ "]- Start clickOnPage method");
 
 		if (driver.isElementDisplayed(By.cssSelector(BOTONSUBMIT))) {
 			log.info("The button Submit is  visible");
@@ -354,47 +338,46 @@ public class TestingMainPage extends BasePageObject {
 			log.error("The field Confirm Password is not visible");
 		}
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnPage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ "]- End clickOnPage method");
 		return new TestingWebMainPage(driver);
 
 	}
 
 	public void dragAndDrop() {
 
-		try {
+		
 			Actions action = new Actions(driver);
 			action.clickAndHold(driver.findElementById("angular")).moveToElement(driver.findElementById("droparea"))
 					.release().build().perform();
-			// Thread.sleep(3000);
 
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-
-			e.printStackTrace();
-		}
+			driver.sleep(3);
+		
 	}
 
-	public boolean dragTheItemByActions() throws InterruptedException {
+	public boolean dragTheItemByActions()   {
 		boolean status = false;
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - Start dragTheItem method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ " - Start dragTheItem method");
 
 		Actions action = new Actions(driver);
 
 		WebElement frame = this.getElementByXPath(IFRAME_XPATH);
 		driver.switchTo().frame(frame);
-		WebElement draggableItem = driver.findElementById("draggable");
-		// WebElement zoneDrop = driver.findElementByXPath(ZONEDROP);
+		WebElement draggableItem = driver.findElementById(DRAGGABLE);
 
 		action.clickAndHold(draggableItem).moveByOffset(100, 100).release().build().perform();
-		Thread.sleep(5000);
+		driver.sleep(5);
 
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - End dragTheItem method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ " - End dragTheItem method");
 		return status;
 	}
 
-	public boolean resizableItemByActions() throws InterruptedException {
+	public boolean resizableItemByActions()   {
 		boolean status = false;
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - Start resizableItemByActions method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ " - Start resizableItemByActions method");
 
 		Actions action = new Actions(driver);
 		WebElement frame = driver.findElementByXPath(FRAME);
@@ -402,37 +385,34 @@ public class TestingMainPage extends BasePageObject {
 		WebElement resizable = driver.findElementByXPath(RESIZABLE);
 
 		action.clickAndHold(resizable).moveByOffset(300, 300).release().build().perform();
-		Thread.sleep(5000);
+		driver.sleep(5);
 
-		// action.clickAndHold(draggableItem).moveToElement(zoneDrop)
-		// .release().build().perform();
-
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - End resizableItemByActions method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ " - End resizableItemByActions method");
 		return status;
 	}
 
-	public boolean droppableItemByActions() throws InterruptedException {
+	public boolean droppableItemByActions()   {
 		boolean status = false;
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - Start droppableItemByActions method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ " - Start droppableItemByActions method");
 
 		Actions action = new Actions(driver);
-		WebElement frame = driver.findElementByXPath(FRAMEDROPPABLE);
+		WebElement frame = driver.findElementByXPath(FRAME);
 		driver.switchTo().frame(frame);
 		WebElement draggable = driver.findElementById(DRAGGABLE);
 		WebElement drop = driver.findElementById(DROPAREA);
 
 		action.clickAndHold(draggable).moveToElement(drop).release().build().perform();
-		Thread.sleep(5000);
+		driver.sleep(5);
 
-		// action.clickAndHold(draggableItem).moveToElement(zoneDrop)
-		// .release().build().perform();
-
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - End droppableItemByActions method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
+				+ " - End droppableItemByActions method");
 		return status;
 	}
 
 	public void doAll() {
-		try {
+		
 			writeName("Juan");
 			writeLastName("Martinez");
 			writeAddress("C/falsa , 123");
@@ -448,14 +428,11 @@ public class TestingMainPage extends BasePageObject {
 			writePassword("Hola123h");
 			writeConfirmPassword("Hola123h");
 
-			Thread.sleep(3000);
+			driver.sleep(3);
 
 			clickOnSubmitButton();
-		} catch (InterruptedException ie) {
+	
 
-			log.warn(ie.getMessage());
-		}
-		
 	}
 
 }

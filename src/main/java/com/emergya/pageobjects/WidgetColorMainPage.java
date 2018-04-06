@@ -1,4 +1,4 @@
-package com.emergya.pageObjects;
+package com.emergya.pageobjects;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -16,9 +16,6 @@ public class WidgetColorMainPage extends BasePageObject {
 	private static final String BUTTONTOGGLE = "buttontoggle";
 	private static final String BUTTONGREEN = "buttongreen";
 	private static final String BUTTONTOPCOLOR = "#my-widget1 > button";
-	private static final String BOX1 = "box1";
-	private static final String BOX2 = "box2";
-	private static final String BOX3 = "box3";
 
 	public WidgetColorMainPage(EmergyaWebDriver driver) {
 		super(driver);
@@ -33,8 +30,8 @@ public class WidgetColorMainPage extends BasePageObject {
 
 	public boolean isReadyWidgetColorLogo() {
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start isReadyWidgetColor method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End isReadyWidgetColor method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start isReadyWidgetColor method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End isReadyWidgetColor method");
 
 		return this.isElementVisibleById(LOGO);
 	}

@@ -1,9 +1,11 @@
-package com.emergya.testSets;
+package com.emergya.testsets;
 
 import static org.testng.AssertJUnit.assertTrue;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.List;
+import java.util.logging.Level;
 
 import org.apache.log4j.Logger;
 
@@ -13,24 +15,28 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.emergya.pageObjects.CheckBoxMainPage;
-import com.emergya.pageObjects.EmergyaMainPage;
-import com.emergya.pageObjects.GoogleMainPage;
-import com.emergya.pageObjects.JQueryControlGroupMainPage;
-import com.emergya.pageObjects.JQueryProgressBarMainPage;
-import com.emergya.pageObjects.JQuerySelectMenu;
-import com.emergya.pageObjects.JQueryToolTipMainPage;
-import com.emergya.pageObjects.LosArcosCineMainPage;
-import com.emergya.pageObjects.LosArcosMainPage;
-import com.emergya.pageObjects.LosArcosTiendasMainPage;
-import com.emergya.pageObjects.NoTodoCodigoMainPage;
-import com.emergya.pageObjects.StackOverFlowMainPage;
-import com.emergya.pageObjects.TestingAlertsMainPage;
-import com.emergya.pageObjects.TestingMainPage;
-import com.emergya.pageObjects.TestingSliderMainPage;
-import com.emergya.pageObjects.UploadImageMainPage;
-import com.emergya.pageObjects.WidgetColorMainPage;
-import com.emergya.pageObjects.LosArcosAccesosMainPage;
+import com.emergya.pageobjects.CheckBoxMainPage;
+import com.emergya.pageobjects.EmergyaMainPage;
+import com.emergya.pageobjects.GoogleMainPage;
+import com.emergya.pageobjects.JQueryControlGroupMainPage;
+import com.emergya.pageobjects.JQueryProgressBarMainPage;
+import com.emergya.pageobjects.JQuerySelectMenu;
+import com.emergya.pageobjects.JQueryToolTipMainPage;
+import com.emergya.pageobjects.ListBoxMainPage;
+import com.emergya.pageobjects.LosArcosAccesosMainPage;
+import com.emergya.pageobjects.LosArcosCineMainPage;
+import com.emergya.pageobjects.LosArcosMainPage;
+import com.emergya.pageobjects.LosArcosTiendasMainPage;
+import com.emergya.pageobjects.NoTodoCodigoMainPage;
+import com.emergya.pageobjects.PhpTravelsLoginMainPage;
+import com.emergya.pageobjects.PhpTravelsMainPage;
+import com.emergya.pageobjects.StackOverFlowMainPage;
+import com.emergya.pageobjects.TestingAlertsMainPage;
+import com.emergya.pageobjects.TestingMainPage;
+import com.emergya.pageobjects.TestingSliderMainPage;
+import com.emergya.pageobjects.TwoIframesMainPage;
+import com.emergya.pageobjects.UploadImageMainPage;
+import com.emergya.pageobjects.WidgetColorMainPage;
 import com.emergya.utils.BasicTestSet;
 
 /**
@@ -128,7 +134,7 @@ public class GoogleTestSet extends BasicTestSet {
 	 * 
 	 */
 	@Test(description = "googleDoSearchAndAccessToPage")
-	public void googleDoSearchAndAccessToPage(Method method) throws InterruptedException {
+	public void googleDoSearchAndAccessToPage(Method method) {
 		log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
 
 		// Variable declaration and definition
@@ -158,8 +164,6 @@ public class GoogleTestSet extends BasicTestSet {
 
 			losArcosTiendasMainPage = losArcosCineMainPage.moveOnLosArcosTiendasPage();
 
-			// isLosArcosDeportesDisplayed();
-
 			losArcosTiendasMainPage = losArcosCineMainPage.clickOnLosArcosTiendasPage();
 
 		} finally {
@@ -182,7 +186,6 @@ public class GoogleTestSet extends BasicTestSet {
 
 			isLosArcosAccesosDisplayed();
 
-			// TODO: Remove the following line when you complete the test
 			assertTrue("Developing test", false);
 
 		} finally {
@@ -226,7 +229,6 @@ public class GoogleTestSet extends BasicTestSet {
 			// Check that the logo is displayed
 			isEmergyaLogoDisplayed();
 
-			// TODO: Remove the following line when you complete the test
 			// assertTrue("Developing test", false);
 
 			// Access to the 'Contacto' page
@@ -300,13 +302,7 @@ public class GoogleTestSet extends BasicTestSet {
 
 			uploadImageMainPage.clickOnUploadFiles();
 
-			try {
-				Thread.sleep(10000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			// driver.wait(5);
+			driver.sleep(1);
 
 		} finally {
 			// Steps to clear the stage (Post steps)
@@ -339,8 +335,6 @@ public class GoogleTestSet extends BasicTestSet {
 
 			stackOverFlowMainPage.registerStackOverFLow("FranPina", "juanitpprueba@yopmail.com", "12341234f");
 
-			// stackOverFlowMainPage.searchInPageRobot();
-
 		} finally {
 			// Steps to clear the stage (Post steps)
 		}
@@ -357,7 +351,7 @@ public class GoogleTestSet extends BasicTestSet {
 			driver.get("http://demo.automationtesting.in/Register.html");
 			// Check that the logo TestingPage is displayed
 			isTestingPageLogo();
-			// testingMainPage.dragAndDrop();
+
 			testingMainPage.doAll();
 
 		} finally {
@@ -378,7 +372,6 @@ public class GoogleTestSet extends BasicTestSet {
 
 			isTestingAlertsPageLogo();
 			testingAlertsMainPage.clickOnButtonAlertOk();
-			// testingAlertsMainPage.clickOnAlertTextbox();
 
 		} finally {
 			// Steps to clear the stage (Post steps)
@@ -405,8 +398,8 @@ public class GoogleTestSet extends BasicTestSet {
 		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
 	}
 
-	@Test(description = "AccesToPageDragDropTest")
-	public void AccesToPageDragDropTest(Method method) {
+	@Test(description = "accesToPageDragDropTest")
+	public void accesToPageDragDropTest(Method method) {
 		log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
 
 		try {
@@ -417,9 +410,6 @@ public class GoogleTestSet extends BasicTestSet {
 			isTestingDragDrop();
 			testingMainPage.dragTheItemByActions();
 
-		} catch (InterruptedException e) {
-			System.err.println("excepcion de dragdrop");
-			e.printStackTrace();
 		} finally {
 			// Steps to clear the stage (Post steps)
 		}
@@ -427,8 +417,8 @@ public class GoogleTestSet extends BasicTestSet {
 		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
 	}
 
-	@Test(description = "AccesToPageResizableTest")
-	public void AccesToPageResizableTest(Method method) {
+	@Test(description = "accesToPageResizableTest")
+	public void accesToPageResizableTest(Method method) {
 		log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
 
 		try {
@@ -439,9 +429,6 @@ public class GoogleTestSet extends BasicTestSet {
 			isTestingResizable();
 			testingMainPage.resizableItemByActions();
 
-		} catch (InterruptedException e) {
-			System.err.println("excepcion de AccesToPageResizableTest");
-			e.printStackTrace();
 		} finally {
 			// Steps to clear the stage (Post steps)
 		}
@@ -449,8 +436,8 @@ public class GoogleTestSet extends BasicTestSet {
 		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
 	}
 
-	@Test(description = "AccesToPageDropableTest")
-	public void AccesToPageDropableTest(Method method) {
+	@Test(description = "accesToPageDropableTest")
+	public void accesToPageDropableTest(Method method) {
 		log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
 
 		try {
@@ -461,9 +448,6 @@ public class GoogleTestSet extends BasicTestSet {
 			isTestingDropapable();
 			testingMainPage.droppableItemByActions();
 
-		} catch (InterruptedException e) {
-			System.err.println("excepcion de AccesToPageDropableTest");
-			e.printStackTrace();
 		} finally {
 			// Steps to clear the stage (Post steps)
 		}
@@ -471,8 +455,8 @@ public class GoogleTestSet extends BasicTestSet {
 		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
 	}
 
-	@Test(description = "AccesToPageControlGroupTest")
-	public void AccesToPageControlGroupTest(Method method) {
+	@Test(description = "accesToPageControlGroupTest")
+	public void accesToPageControlGroupTest(Method method) {
 		log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
 
 		try {
@@ -490,8 +474,8 @@ public class GoogleTestSet extends BasicTestSet {
 		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
 	}
 
-	@Test(description = "AccesToPageSelectMenu")
-	public void AccesToPageSelectMenu(Method method) {
+	@Test(description = "accesToPageSelectMenu")
+	public void accesToPageSelectMenu(Method method) {
 		log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
 
 		try {
@@ -509,8 +493,8 @@ public class GoogleTestSet extends BasicTestSet {
 		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
 	}
 
-	@Test(description = "AccesToPageCheckbox")
-	public void AccesToPageCheckbox(Method method) {
+	@Test(description = "accesToPageCheckbox")
+	public void accesToPageCheckbox(Method method) {
 		log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
 
 		try {
@@ -528,8 +512,8 @@ public class GoogleTestSet extends BasicTestSet {
 		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
 	}
 
-	@Test(description = "ProgressBarTest")
-	public void ProgressBarTest(Method method) {
+	@Test(description = "progressBarTest")
+	public void progressBarTest(Method method) {
 		log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
 
 		try {
@@ -547,8 +531,8 @@ public class GoogleTestSet extends BasicTestSet {
 		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
 	}
 
-	@Test(description = "ColorBarTest")
-	public void ColorBarTest(Method method) {
+	@Test(description = "colorBarTest")
+	public void colorBarTest(Method method) {
 		log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
 
 		try {
@@ -593,10 +577,114 @@ public class GoogleTestSet extends BasicTestSet {
 
 			// go to url
 			driver.get("http://jqueryui.com/widget/");
-			
+
 			// Check that the logo JQUERY is displayed
 			isWidgetColorLogoVisible();
 			widgetColorMainPage.doAll();
+
+		} finally {
+			// Steps to clear the stage (Post steps)
+		}
+
+		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
+	}
+
+	@Test(description = "selectMultipleTest")
+	public void selectMultipleTest(Method method) {
+		log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
+
+		try {
+
+			// go to url
+			driver.get("http://compendiumdev.co.uk/selenium/basic_html_form.html");
+
+			selectMultipleMainPage.multipleSelect();
+
+		} finally {
+			// Steps to clear the stage (Post steps)
+		}
+
+		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
+	}
+
+	@Test(description = "phpGoToLogin")
+	public void phpGoToLogin(Method method) {
+		log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
+
+		try {
+
+			// go to url
+			driver.get("https://phptravels.com/demo/");
+
+			isPhpTravelsLogoVisible();
+
+			phpTravelsLoginMainPage = phpTravelsMainPage.goToLogin();
+
+			for (String winHandle : driver.getWindowHandles()) {
+				driver.switchTo().window(winHandle);
+
+			}
+
+			driver.sleep(3);
+
+			isPhpTravelsLoginLogoVisible();
+			phpTravelsLoginMainPage.writeFields();
+
+			driver.sleep(4);
+
+		} catch (IOException e) {
+
+			log.warn(Level.WARNING, e);
+		} finally {
+			// Steps to clear the stage (Post steps)
+		}
+
+		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
+	}
+
+	@Test(description = "writePhpLogin")
+	public void writePhpLogin(Method method) {
+		log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
+
+		try {
+
+			isPhpTravelsLoginLogoVisible();
+
+		} finally {
+			// Steps to clear the stage (Post steps)
+		}
+
+		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
+	}
+
+	@Test(description = "playWithTwoIframes")
+	public void playWithTwoIframes(Method method) {
+		log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
+
+		try {
+
+			driver.get("http://omayo.blogspot.com.es/");
+			isTwoIframesLogoVisible();
+
+			twoIframesMainPage.identifyButtons();
+
+		} finally {
+			// Steps to clear the stage (Post steps)
+		}
+
+		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
+	}
+
+	@Test(description = "listBoxSelect")
+	public void listBoxSelect(Method method) {
+		log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
+
+		try {
+
+			driver.get("http://www.seleniumeasy.com/test/jquery-dual-list-box-demo.html");
+			isSeleniumEasyLogoVisible();
+			listBoxMainPage.selectMultipleListBox();
+			driver.sleep(3);
 
 		} finally {
 			// Steps to clear the stage (Post steps)
@@ -1000,6 +1088,62 @@ public class GoogleTestSet extends BasicTestSet {
 		}
 		assertTrue("Logo isWidgetColorLogoVisible isn't displayed, it should be displayed",
 				widgetColorMainPage.isReadyWidgetColorLogo());
+
+	}
+
+	/**
+	 * This assertion check if PhpTravels logo are displayed
+	 */
+	public void isPhpTravelsLogoVisible() {
+
+		if (phpTravelsMainPage == null) {
+
+			phpTravelsMainPage = new PhpTravelsMainPage(driver);
+		}
+		assertTrue("Logo PhpTravels isn't displayed, it should be displayed",
+				phpTravelsMainPage.isPhpTravelsPageLogoDisplayed());
+
+	}
+
+	/**
+	 * This assertion check if PhpTravelsLogin logo are displayed
+	 */
+	public void isPhpTravelsLoginLogoVisible() {
+
+		if (phpTravelsLoginMainPage == null) {
+
+			phpTravelsLoginMainPage = new PhpTravelsLoginMainPage(driver);
+		}
+		assertTrue("Logo PhpTravelsLogin isn't displayed, it should be displayed",
+				phpTravelsLoginMainPage.isPhpTravelsLoginPageLogoDisplayed());
+
+	}
+
+	/**
+	 * This assertion check if omayo logo are displayed
+	 */
+	public void isTwoIframesLogoVisible() {
+
+		if (twoIframesMainPage == null) {
+
+			twoIframesMainPage = new TwoIframesMainPage(driver);
+		}
+		assertTrue("Logo Omayo  isn't displayed, it should be displayed",
+				twoIframesMainPage.isTwoIframesLogoDisplayed());
+
+	}
+
+	/**
+	 * This assertion check if SeleniumEasy logo are displayed
+	 */
+	public void isSeleniumEasyLogoVisible() {
+
+		if (listBoxMainPage == null) {
+
+			listBoxMainPage = new ListBoxMainPage(driver);
+		}
+		assertTrue("Logo SeleniumEasy  isn't displayed, it should be displayed",
+				listBoxMainPage.isSeleniumEasyLogoDisplayed());
 
 	}
 

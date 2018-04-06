@@ -1,9 +1,9 @@
-package com.emergya.pageObjects;
+package com.emergya.pageobjects;
 
 import java.awt.AWTException;
 import java.awt.Robot;
-import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.util.logging.Level;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Keys;
@@ -27,7 +27,7 @@ public class StackOverFlowMainPage extends BasePageObject {
 	private static final String EMAIL = "labelmail";
 	private static final String PASS = "labelpass";
 	private static final String REGISTER = "signupbutton";
-	// private static final String PRUEBA = "<span class='-img' style=''>" ;
+	
 
 	/**
 	 * Constructor method
@@ -50,11 +50,11 @@ public class StackOverFlowMainPage extends BasePageObject {
 	@Override
 	public boolean isReady() {
 
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - Start isReady method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + " - Start isReady method");
 
 		boolean status = this.isElementVisibleByXPath(LOGO);
 
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - End isReady method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + " - End isReady method");
 
 		return status;
 	}
@@ -67,8 +67,8 @@ public class StackOverFlowMainPage extends BasePageObject {
 	 */
 	public boolean isStackOverFlowPageDisplayed() {
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start isUploadImagePageDisplayed method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End isUploadImagePageDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start isUploadImagePageDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End isUploadImagePageDisplayed method");
 
 		return this.isElementVisibleByXPath(LOGO);
 	}
@@ -82,18 +82,11 @@ public class StackOverFlowMainPage extends BasePageObject {
 	 */
 	public boolean isStackOverFlowLabelsDisplayed() {
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
 				+ "]- Start isStackOverFlowLabelsDisplayed method");
 		log.info(
-				"[log-pageObjects]" + this.getClass().getSimpleName() + "]- End isStackOverFlowLabelsDisplayed method");
+				com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End isStackOverFlowLabelsDisplayed method");
 
-		/*
-		 * if(isElementVisibleByXPath(NAME) && isElementVisibleByXPath(EMAIL) &&
-		 * isElementVisibleByXPath(PASS)) {
-		 * System.err.println("SE VEN LOS TRES LABELS"); }else {
-		 * 
-		 * System.err.println("nooooooooooooSE VEN LOS TRES LABELS"); }
-		 */
 		return this.isElementVisibleByXPath(NAME) && this.isElementVisibleByXPath(EMAIL)
 				&& this.isElementVisibleByXPath(PASS);
 	}
@@ -108,8 +101,8 @@ public class StackOverFlowMainPage extends BasePageObject {
 	 */
 	public void registerStackOverFLow(String name, String email, String password) {
 
-		log.info("[log-" + this.getClass().getSimpleName() + "]- Start registerStackOverFLow -["
-				+ this.getClass().getSimpleName() + "- method]");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start registerStackOverFLow -["
+				+ this.getClass().getSimpleName() );
 
 		if (this.isElementVisibleByXPath(NAME) && this.isElementVisibleByXPath(EMAIL)
 				&& this.isElementVisibleByXPath(PASS)) {
@@ -119,24 +112,20 @@ public class StackOverFlowMainPage extends BasePageObject {
 			this.getElementByXPath(PASS).sendKeys(password);
 
 			this.getElementByXPath(REGISTER).sendKeys(Keys.ENTER);
-			try {
-				Thread.sleep(10000);
+			
+				driver.sleep(1);
 
-			} catch (InterruptedException e) {
-
-				e.printStackTrace();
-			}
 
 		}
 
-		log.info("[log-" + this.getClass().getSimpleName() + "]- End registerStackOverFLow -["
-				+ this.getClass().getSimpleName() + "- method]");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End registerStackOverFLow -["
+				+ this.getClass().getSimpleName() );
 	}
 
 	public void searchInPageRobot() {
 
-		log.info("[log-" + this.getClass().getSimpleName() + "]- Start searchInPageRobot -["
-				+ this.getClass().getSimpleName() + "- method]");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start searchInPageRobot -["
+				+ this.getClass().getSimpleName() );
 
 		try {
 			Robot robot = new Robot();
@@ -147,27 +136,16 @@ public class StackOverFlowMainPage extends BasePageObject {
 			robot.keyRelease(KeyEvent.VK_H);
 			robot.keyPress(KeyEvent.VK_ENTER);
 			robot.keyRelease(KeyEvent.VK_ENTER);
-			Thread.sleep(2000);
+			driver.sleep(2);
 			robot.keyRelease(KeyEvent.VK_CONTROL);
 			robot.keyRelease(KeyEvent.VK_F);
-			Thread.sleep(2000);
-			// writeRobot("hola mundo");
+			driver.sleep(2);
 
-		} catch (AWTException e) {
+		} catch (AWTException awt) {
 
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-
-			e.printStackTrace();
-		}
+			log.warn(Level.WARNING, awt);
+		
 	}
 
-	private void writeRobot(String prueba) {
-
-		StringSelection stringSelection = new StringSelection(prueba);
-		// Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection,
-		// null);
-
-	}
-
+}
 }

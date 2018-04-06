@@ -1,10 +1,11 @@
-package com.emergya.pageObjects;
+package com.emergya.pageobjects;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.logging.Level;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
@@ -38,9 +39,9 @@ public class JQuerySelectMenu extends BasePageObject {
 	}
 
 	public boolean isJQueryLogoSelectMenuDisplayed() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
 				+ "]- Start isJQueryLogoSelectMenuDisplayed method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
 				+ "]- End isJQueryLogoSelectMenuDisplayed method");
 
 		return this.isElementVisibleById(LOGO);
@@ -48,7 +49,7 @@ public class JQuerySelectMenu extends BasePageObject {
 	}
 
 	public CheckBoxMainPage clickAndSelectSpeed() {
-
+		String ruta="/home/fjmartinez/Documentos/screenshot.png";
 		String xpathLink = "//*[@id='content']/iframe";
 		WebElement frame = driver.findElementByXPath(xpathLink);
 		driver.switchTo().frame(frame);
@@ -62,19 +63,18 @@ public class JQuerySelectMenu extends BasePageObject {
 
 		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
-
-			Path p = Paths.get("/home/fjmartinez/Documentos/screenshot.png");
-			boolean exists = Files.exists(p);
-
-			if (exists) {
+			
+			Path p = Paths.get(ruta);
+			
+			if (p.toFile().exists()) {
 				
 				Files.delete(p);
 			}
-			FileUtils.copyFile(srcFile, new File("/home/fjmartinez/Documentos/screenshot.png"));
+			FileUtils.copyFile(srcFile, new File(ruta));
 
 		} catch (IOException e) {
 			
-			e.printStackTrace();
+			log.warn(Level.WARNING, e);
 		}
 		String cssLinkCheck = "#sidebar > aside:nth-child(2) > ul > li:nth-child(4) > a";
 		driver.clickIfExists(By.cssSelector(cssLinkCheck));

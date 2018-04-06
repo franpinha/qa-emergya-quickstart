@@ -1,4 +1,4 @@
-package com.emergya.pageObjects;
+package com.emergya.pageobjects;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -38,11 +38,11 @@ public class LosArcosMainPage extends BasePageObject {
 	 */
 	@Override
 	public boolean isReady() {
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - Start isReady method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + " - Start isReady method");
 
 		boolean status = this.isElementVisibleById(NAVBAR);
 
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - End isReady method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + " - End isReady method");
 
 		return status;
 	}
@@ -55,16 +55,16 @@ public class LosArcosMainPage extends BasePageObject {
 	 */
 	public boolean isLosArcosNavBarDisplayed() {
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start isLosArcosNabBarDisplayed method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End isLosArcosNabBarDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start isLosArcosNabBarDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End isLosArcosNabBarDisplayed method");
 
 		return this.isElementVisibleById(NAVBAR);
 	}
 
 	public boolean isLosArcosNoticiasDisplayed() {
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start isLosArcosNabBarDisplayed method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End isLosArcosNabBarDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start isLosArcosNabBarDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End isLosArcosNabBarDisplayed method");
 
 		return this.isElementVisibleByXPath(NOTICIAS);
 	}
@@ -75,13 +75,13 @@ public class LosArcosMainPage extends BasePageObject {
 	 * @return
 	 */
 	public LosArcosAccesosMainPage clickOnLosArcosAccesosPage() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start clickOnPage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start clickOnPage method");
 
 		String xpathLink = "//*[@id='navbar']/div/ul[3]/li[1]/a[contains(@href,'/acces')]";
 
 		driver.clickIfExists(By.xpath(xpathLink));
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnPage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End clickOnPage method");
 		return new LosArcosAccesosMainPage(driver);
 
 	}

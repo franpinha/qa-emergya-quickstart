@@ -1,4 +1,4 @@
-package com.emergya.pageObjects;
+package com.emergya.pageobjects;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.Keys;
@@ -51,8 +51,8 @@ public class NoTodoCodigoMainPage extends BasePageObject {
 	 */
 	public boolean isNoTodoCodigoPageDisplayed() {
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start isNoTodoCodigoPageDisplayed method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End isNoTodoCodigoPageDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start isNoTodoCodigoPageDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End isNoTodoCodigoPageDisplayed method");
 
 		return this.isElementVisibleById(HEADER);
 	}
@@ -65,9 +65,9 @@ public class NoTodoCodigoMainPage extends BasePageObject {
 	 */
 	public boolean isNoTodoCodigoBuscarDisplayed() {
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName()
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
 				+ "]- Start isNoTodoCodigoBuscarDisplayed method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End isNoTodoCodigoBuscarDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End isNoTodoCodigoBuscarDisplayed method");
 
 		return this.isElementVisibleByXPath(BUSCAR);
 	}

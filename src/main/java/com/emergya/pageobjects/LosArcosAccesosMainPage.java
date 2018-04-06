@@ -1,4 +1,4 @@
-package com.emergya.pageObjects;
+package com.emergya.pageobjects;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -38,11 +38,11 @@ public class LosArcosAccesosMainPage extends BasePageObject {
 	 */
 	@Override
 	public boolean isReady() {
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - Start isReady method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + " - Start isReady method");
 
 		boolean status = this.isElementVisibleById(ACCESOS);
 
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - End isReady method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + " - End isReady method");
 
 		return status;
 	}
@@ -55,8 +55,8 @@ public class LosArcosAccesosMainPage extends BasePageObject {
 	 */
 	public boolean isLosArcosAccesosDisplayed() {
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start isLosArcosAccesosDisplayed method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End isLosArcosAccesosDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start isLosArcosAccesosDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End isLosArcosAccesosDisplayed method");
 
 		return this.isElementVisibleByXPath(ACCESOS);
 	}
@@ -67,13 +67,13 @@ public class LosArcosAccesosMainPage extends BasePageObject {
 	 * @return
 	 */
 	public LosArcosCineMainPage clickOnLosArcosCinePage() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start clickOnPage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start clickOnPage method");
 
 		String xpathLink = "//*[@id='pictoHome']/li[3]/a/span[2]";
 
 		driver.clickIfExists(By.xpath(xpathLink));
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnPage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End clickOnPage method");
 		return new LosArcosCineMainPage(driver);
 
 	}

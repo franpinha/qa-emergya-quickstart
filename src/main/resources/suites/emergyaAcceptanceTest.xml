@@ -4,7 +4,7 @@
 	configfailurepolicy="continue">
 	<test name="GoogleTest" order-by-instances="true">
 		<classes>
-			<class name="com.emergya.testSets.GoogleTestSet">
+			<class name="com.emergya.testsets.GoogleTestSet">
 				<!--<class name="com.emergya.testSets.OwnTestSet"> -->
 				<methods>
 					<!-- <include name="googleMainPageSearch" /> -->
@@ -16,20 +16,27 @@
 					<!-- <include name="googleDoSearchAndAccessToPageCine" /> -->
 					<!-- <include name="googleDoSearchAndAccessToPageTiendas" /> -->
 					<!-- <include name="googleDoSearchAndAccessToPageTesting" /> -->
-					<!-- <include name="googleDoSearchAndAccessToPageTestingAlerts" /> -->
-					<!-- <include name="moveToSliderTesting" /> -->
+					 <include name="googleDoSearchAndAccessToPageTestingAlerts" /> 
+					 <include name="moveToSliderTesting" /> 
 					<!-- <include name="checkBoxTest" /> -->
 					<!-- <include name="accesJQueryUIPage" /> -->
-					<!--<include name="AccesToPageDragDropTest" /> -->
-					<!--<include name="AccesToPageResizableTest" /> -->
-					<!--<include name="AccesToPageDropableTest"/> -->
-					<!--<include name="AccesToPageControlGroupTest"/> -->
-					<!-- <include name="AccesToPageSelectMenu"/> -->
-					<!--<include name="CheckBoxMainPage"/> -->
-					<!-- <include name="ProgressBarTest"/> -->
-					<!--<include name="ColorBarTest" /> -->
+					<!--<include name="accesToPageDragDropTest" /> -->
+					<!--<include name="accesToPageResizableTest" /> -->
+					<!--<include name="accesToPageDropableTest"/> -->
+					<!--<include name="accesToPageControlGroupTest"/> -->
+					<!-- <include name="accesToPageSelectMenu"/> -->
+					<!--<include name="checkBoxMainPage"/> -->
+					<!-- <include name="progressBarTest"/> -->
+					<!--<include name="colorBarTest" /> -->
 					<!-- <include name="toolTipTest" /> -->
-					<include name="controlChangeColor" />
+					<!-- <include name="controlChangeColor" /> -->
+					<!--<include name="selectMultipleTest" /> -->
+					<!-- <include name="phpGoToLogin" /> -->
+					<!--<include name="writePhpLogin" /> -->
+					<!-- <include name="playWithTwoIframes" /> -->
+					<!-- <include name="listBoxSelect" />  -->
+
+
 
 
 

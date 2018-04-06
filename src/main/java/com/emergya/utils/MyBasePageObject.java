@@ -1,5 +1,6 @@
 package com.emergya.utils;
 
+import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
@@ -8,8 +9,18 @@ import java.io.File;
 
 import org.apache.log4j.Logger;
 
-public  class MyBasePageObject {
+import com.emergya.selenium.drivers.EmergyaWebDriver;
+import com.emergya.selenium.pageObject.BasePageObject;
+
+public  class MyBasePageObject extends BasePageObject{
 	
+	public MyBasePageObject(EmergyaWebDriver driver) {
+		super(driver);
+		
+	}
+
+
+	public static final String CONSTANTPAGEOBJECT=com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT;
 	/**
 	 * Logger class initialization.
 	 */
@@ -19,31 +30,32 @@ public  class MyBasePageObject {
 	    * @param string is the path of the file
 	    */
 	   private void setClipboardData(String string) {
-	       log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - Start setClipboardData method");
+	       log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + " - Start setClipboardData method");
 
 	       StringSelection stringSelection = new StringSelection(string);
 	       Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
 
-	       log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - End setClipboardData method");
+	       log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + " - End setClipboardData method");
 	   }
 	   
 	   
 	   /**
 	    * Upload a image
+	 * @throws AWTException 
 	    */
-	public void uploadArchive(String imageFile) {
-	       log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start uploadArchive method");
+	public void uploadArchive(String imageFile) throws AWTException {
+	       log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start uploadArchive method");
 
 	       File auxfile = new File("src/main/resources/files/" + imageFile);
 	       String fileName = auxfile.getAbsolutePath();
 
-	       try {
+	      
 	           log.info("Uploading the image " + imageFile);
 	           // Setting clipboard with file location
 	           setClipboardData(fileName);
 
 	           // Some sleep time to detect the window popup
-	           Thread.sleep(500);
+	           driver.sleep(1);
 
 	           Robot robot = new Robot();
 
@@ -61,18 +73,23 @@ public  class MyBasePageObject {
 	           robot.keyPress(KeyEvent.VK_V);
 	           robot.keyRelease(KeyEvent.VK_V);
 	           robot.keyRelease(KeyEvent.VK_CONTROL);
-	           Thread.sleep(2000);
+	           driver.sleep(2);
 
 	           // Press enter to execute a file search
 	           robot.keyPress(KeyEvent.VK_ENTER);
 	           robot.keyRelease(KeyEvent.VK_ENTER);
 	           robot.delay(500);
 
-	       } catch (Exception exp) {
-	           exp.printStackTrace();
-	       }
+	     
 
-	       log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - End uploadArchive method");
+	       log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + " - End uploadArchive method");
 	   }
+
+
+	@Override
+	public boolean isReady() {
+		
+		return false;
+	}
 
 }

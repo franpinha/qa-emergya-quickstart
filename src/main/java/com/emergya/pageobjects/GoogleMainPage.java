@@ -1,4 +1,4 @@
-package com.emergya.pageObjects;
+package com.emergya.pageobjects;
 
 import java.util.List;
 
@@ -24,6 +24,7 @@ public class GoogleMainPage extends BasePageObject {
 	 * Logger class initialization.
 	 */
 	static Logger log = Logger.getLogger(GoogleMainPage.class);
+
 
 	/**
 	 * Items keys selectors.
@@ -52,11 +53,11 @@ public class GoogleMainPage extends BasePageObject {
 	 */
 	@Override
 	public boolean isReady() {
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - Start isReady method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + " - Start isReady method");
 
 		boolean status = this.isElementVisibleById(IMG_LOGO);
 
-		log.info("[log-PageObjects] " + this.getClass().getSimpleName() + " - End isReady method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + " - End isReady method");
 
 		return status;
 	}
@@ -89,12 +90,12 @@ public class GoogleMainPage extends BasePageObject {
 	 * @return
 	 */
 	public EmergyaMainPage clickOnEmergyaPage() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start clickOnPage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start clickOnPage method");
 		String xpathLink = "//h3[@class='r']/a[contains(@href,'emergya.es')]";
 
 		driver.clickIfExists(By.xpath(xpathLink));
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnPage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End clickOnPage method");
 		return new EmergyaMainPage(driver);
 	}
 
@@ -104,8 +105,8 @@ public class GoogleMainPage extends BasePageObject {
 	 * @return
 	 */
 	public boolean isLogoDisplayed() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start isLogoDisplayed method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End isLogoDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start isLogoDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End isLogoDisplayed method");
 
 		return this.isElementVisibleById(IMG_LOGO);
 	}
@@ -116,8 +117,8 @@ public class GoogleMainPage extends BasePageObject {
 	 * @return
 	 */
 	public boolean isSearchButtonDisplayed() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start isSearchButtonDisplayed method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End isSearchButtonDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start isSearchButtonDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End isSearchButtonDisplayed method");
 
 		return this.isElementVisibleByName(SEARCH_BUTTON);
 	}
@@ -128,8 +129,8 @@ public class GoogleMainPage extends BasePageObject {
 	 * @return
 	 */
 	public boolean isLuckButtonDisplayed() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start isLuckButtonDisplayed method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End isLuckButtonDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start isLuckButtonDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End isLuckButtonDisplayed method");
 
 		return this.isElementVisibleByName(LUCK_BUTTON);
 	}
@@ -140,8 +141,8 @@ public class GoogleMainPage extends BasePageObject {
 	 * @return
 	 */
 	public boolean isSearchFieldDisplayed() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start isSearchFieldDisplayed method");
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End isSearchFieldDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start isSearchFieldDisplayed method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End isSearchFieldDisplayed method");
 
 		return this.isElementVisibleById(SEARCH_FIELD);
 	}
@@ -152,14 +153,14 @@ public class GoogleMainPage extends BasePageObject {
 	 * @return
 	 */
 	public LosArcosMainPage clickOnLosArcosPage() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start clickOnPage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start clickOnPage method");
 
 		String xpathLink = "//h3[@class='r']/a[contains(@href,'cclosarcos.com')]";
 		List<WebElement> lista = driver.findElementsByXPath(xpathLink);
 		lista.get(0).click();
-		// driver.clickIfExists(By.xpath(xpathLink));
+		
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnPage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End clickOnPage method");
 		return new LosArcosMainPage(driver);
 	}
 
@@ -169,7 +170,7 @@ public class GoogleMainPage extends BasePageObject {
 	 * @return
 	 */
 	public NoTodoCodigoMainPage clickOnNoTodoCodigoPage() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start clickOnPage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start clickOnPage method");
 
 		String xpathLink = "//h3[@class='r']/a[contains(@href,'http://www.notodocodigo.com/')]";
 
@@ -177,7 +178,7 @@ public class GoogleMainPage extends BasePageObject {
 		// lista.get(0).click();
 		driver.clickIfExists(By.xpath(xpathLink));
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnPage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End clickOnPage method");
 		return new NoTodoCodigoMainPage(driver);
 	}
 
@@ -187,12 +188,12 @@ public class GoogleMainPage extends BasePageObject {
 	 * @return
 	 */
 	public UploadImageMainPage clickOnUploadImagePage() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start clickOnUploadImagePage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start clickOnUploadImagePage method");
 
 		String xpathLink = "//h3[@class='r']/a[contains(@href,'https://www.zamzar.com')]";
 		driver.clickIfExists(By.xpath(xpathLink));
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnUploadImagePage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End clickOnUploadImagePage method");
 		return new UploadImageMainPage(driver);
 	}
 
@@ -203,13 +204,13 @@ public class GoogleMainPage extends BasePageObject {
 	 */
 
 	public StackOverFlowMainPage clickOnStackOverFlowPage() {
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- Start clickOnStackOverFlowPage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- Start clickOnStackOverFlowPage method");
 
 		String xpathLink = "//h3[@class='r']/a[contains(@href,'https://stackoverflow.com/')]";
 
 		driver.clickIfExists(By.xpath(xpathLink));
 
-		log.info("[log-pageObjects]" + this.getClass().getSimpleName() + "]- End clickOnStackOverFlowPage method");
+		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName() + "]- End clickOnStackOverFlowPage method");
 		return new StackOverFlowMainPage(driver);
 	}
 	

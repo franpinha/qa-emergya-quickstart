@@ -1,4 +1,4 @@
-package com.emergya.testSets;
+package com.emergya.testsets;
 
 import static org.testng.AssertJUnit.assertTrue;
 
@@ -9,8 +9,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.emergya.pageObjects.JQueryMainPage;
-
+import com.emergya.pageobjects.JQueryMainPage;
 import com.emergya.utils.BasicTestSet;
 
 public class OwnTestSet extends BasicTestSet {
