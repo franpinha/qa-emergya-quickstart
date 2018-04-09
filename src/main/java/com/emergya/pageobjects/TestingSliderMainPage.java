@@ -1,7 +1,5 @@
 package com.emergya.pageobjects;
 
-import java.util.logging.Level;
-
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

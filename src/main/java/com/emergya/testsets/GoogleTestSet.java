@@ -30,6 +30,8 @@ import com.emergya.pageobjects.LosArcosTiendasMainPage;
 import com.emergya.pageobjects.NoTodoCodigoMainPage;
 import com.emergya.pageobjects.PhpTravelsLoginMainPage;
 import com.emergya.pageobjects.PhpTravelsMainPage;
+import com.emergya.pageobjects.SelectDateMainPage;
+import com.emergya.pageobjects.SelectDesplegableMainPage;
 import com.emergya.pageobjects.StackOverFlowMainPage;
 import com.emergya.pageobjects.TestingAlertsMainPage;
 import com.emergya.pageobjects.TestingMainPage;
@@ -692,6 +694,46 @@ public class GoogleTestSet extends BasicTestSet {
 
 		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
 	}
+	
+	@Test(description = "selectDatePicker")
+	public void selectDatePicker(Method method) {
+		log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
+
+		try {
+
+			driver.get("http://www.seleniumeasy.com/test/bootstrap-date-picker-demo.html");
+			isSeleniumEasyDatePickerLogoVisible();
+			selectDateMainPage.obtainDateToday();
+			
+			driver.sleep(3);
+
+		} finally {
+			// Steps to clear the stage (Post steps)
+		}
+
+		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
+	}
+	
+	@Test(description = "selectDesplegableVarious")
+	public void selectDesplegableVarious(Method method) {
+		log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
+
+		try {
+
+			driver.get("http://www.seleniumeasy.com/test/jquery-dropdown-search-demo.html");
+			isSeleniumEasySelectDesplegableLogoVisible();
+			selectDesplegableMainPage.selectCountry();
+			selectDesplegableMainPage.multiSelect();
+			selectDesplegableMainPage.selectTerritories();
+			selectDesplegableMainPage.selectProgramming();
+			
+
+		} finally {
+			// Steps to clear the stage (Post steps)
+		}
+
+		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
+	}
 
 	// ************************ Methods *************************
 	/**
@@ -1144,6 +1186,34 @@ public class GoogleTestSet extends BasicTestSet {
 		}
 		assertTrue("Logo SeleniumEasy  isn't displayed, it should be displayed",
 				listBoxMainPage.isSeleniumEasyLogoDisplayed());
+
+	}
+	
+	/**
+	 * This assertion check if SeleniumEasy logo are displayed
+	 */
+	public void isSeleniumEasyDatePickerLogoVisible() {
+
+		if (selectDateMainPage == null) {
+
+			selectDateMainPage = new SelectDateMainPage(driver);
+		}
+		assertTrue("Logo SeleniumEasy  isn't displayed, it should be displayed",
+				selectDateMainPage.isSeleniumEasyLogoPageDisplayed());
+
+	}
+	
+	/**
+	 * This assertion check if SeleniumEasy logo are displayed
+	 */
+	public void isSeleniumEasySelectDesplegableLogoVisible() {
+
+		if (selectDesplegableMainPage == null) {
+
+			selectDesplegableMainPage = new SelectDesplegableMainPage(driver);
+		}
+		assertTrue("Logo SeleniumEasy  isn't displayed, it should be displayed",
+				selectDesplegableMainPage.isSelectDesplegableLogoDisplayed());
 
 	}
 

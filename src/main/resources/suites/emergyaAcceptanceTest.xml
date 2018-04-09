@@ -16,8 +16,8 @@
 					<!-- <include name="googleDoSearchAndAccessToPageCine" /> -->
 					<!-- <include name="googleDoSearchAndAccessToPageTiendas" /> -->
 					<!-- <include name="googleDoSearchAndAccessToPageTesting" /> -->
-					 <include name="googleDoSearchAndAccessToPageTestingAlerts" /> 
-					 <include name="moveToSliderTesting" /> 
+					<!-- <include name="googleDoSearchAndAccessToPageTestingAlerts" /> -->
+					<!-- <include name="moveToSliderTesting" /> -->
 					<!-- <include name="checkBoxTest" /> -->
 					<!-- <include name="accesJQueryUIPage" /> -->
 					<!--<include name="accesToPageDragDropTest" /> -->
@@ -34,7 +34,9 @@
 					<!-- <include name="phpGoToLogin" /> -->
 					<!--<include name="writePhpLogin" /> -->
 					<!-- <include name="playWithTwoIframes" /> -->
-					<!-- <include name="listBoxSelect" />  -->
+					<!-- <include name="listBoxSelect" /> -->
+					<!-- <include name="selectDatePicker" /> -->
+					<include name="selectDesplegableVarious" />
 
 
 

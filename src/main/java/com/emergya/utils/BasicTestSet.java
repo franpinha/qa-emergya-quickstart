@@ -16,6 +16,8 @@ import com.emergya.pageobjects.LosArcosTiendasMainPage;
 import com.emergya.pageobjects.NoTodoCodigoMainPage;
 import com.emergya.pageobjects.PhpTravelsLoginMainPage;
 import com.emergya.pageobjects.PhpTravelsMainPage;
+import com.emergya.pageobjects.SelectDateMainPage;
+import com.emergya.pageobjects.SelectDesplegableMainPage;
 import com.emergya.pageobjects.SelectMultipleMainPage;
 import com.emergya.pageobjects.StackOverFlowMainPage;
 import com.emergya.pageobjects.TestingAlertsMainPage;
@@ -58,5 +60,7 @@ public abstract class BasicTestSet extends DefaultTestSet {
 	protected PhpTravelsLoginMainPage phpTravelsLoginMainPage;
 	protected TwoIframesMainPage twoIframesMainPage;
 	protected ListBoxMainPage listBoxMainPage;
+	protected SelectDateMainPage selectDateMainPage;
+	protected SelectDesplegableMainPage selectDesplegableMainPage;
 
 }
