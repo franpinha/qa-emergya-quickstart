@@ -19,7 +19,7 @@ public class SelectDesplegableMainPage extends BasePageObject {
 
 	// without properties
 	private static final String MULTISELECT = "//input[@class='select2-search__field']";
-	private static final String TERRITORY="//*[@id='select2-x01n-container']";
+	private static final String TERRITORY = "//*[@id='select2-x01n-container']";
 
 	public SelectDesplegableMainPage(EmergyaWebDriver driver) {
 		super(driver);
@@ -62,21 +62,20 @@ public class SelectDesplegableMainPage extends BasePageObject {
 			driver.sleep(1);
 
 		}
-		
-		
+
 	}
+
 	public void selectTerritories() {
-		
-			Select dropdownTerritory = new Select (driver.findElementByXPath("//select[@class='js-example-disabled-results select2-hidden-accessible']"));
-			dropdownTerritory.selectByValue("MP");
-			driver.sleep(2);
-		}
-	
+
+		Select dropdownTerritory = new Select(
+				driver.findElementByXPath("//select[@class='js-example-disabled-results select2-hidden-accessible']"));
+		dropdownTerritory.selectByValue("MP");
+		driver.sleep(2);
+	}
+
 	public void selectProgramming() {
-		Select dropdownFile = new Select (driver.findElementById("files"));
+		Select dropdownFile = new Select(driver.findElementById("files"));
 		dropdownFile.selectByVisibleText("Java");
 		driver.sleep(2);
 	}
-	}
-
-
+}

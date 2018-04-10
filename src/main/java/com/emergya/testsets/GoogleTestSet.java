@@ -15,6 +15,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.emergya.pageobjects.ChargeMainPage;
 import com.emergya.pageobjects.CheckBoxMainPage;
 import com.emergya.pageobjects.EmergyaMainPage;
 import com.emergya.pageobjects.GoogleMainPage;
@@ -38,6 +39,7 @@ import com.emergya.pageobjects.TestingMainPage;
 import com.emergya.pageobjects.TestingSliderMainPage;
 import com.emergya.pageobjects.TwoIframesMainPage;
 import com.emergya.pageobjects.UploadImageMainPage;
+import com.emergya.pageobjects.UploadWithoutRobot;
 import com.emergya.pageobjects.WidgetColorMainPage;
 import com.emergya.utils.BasicTestSet;
 
@@ -734,6 +736,44 @@ public class GoogleTestSet extends BasicTestSet {
 
 		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
 	}
+	
+	@Test(description = "controlChargePercentage")
+	public void controlChargePercentage(Method method) {
+		log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
+
+		try {
+
+			driver.get("http://www.seleniumeasy.com/test/bootstrap-download-progress-demo.html");
+			isSeleniumEasyChargeLogoVisible();
+			chargeMainPage.clickAndControlCharge();
+			driver.sleep(2);
+			demoMainPage=chargeMainPage.returnToHome();
+			
+
+		} finally {
+			// Steps to clear the stage (Post steps)
+		}
+
+		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
+	}
+	
+	@Test(description = "uploadArchiveWithoutRobot")
+	public void uploadArchiveWithoutRobot(Method method) {
+		log.info("[log-TestSet] " + this.getClass().getName() + " - Start test method: " + method.getName());
+
+		try {
+
+			driver.get("http://omayo.blogspot.com.es/");
+			isOmayoLogoPageIsDisplayed();
+			uploadWithoutRobot.clickOnUploadFiles();
+			
+
+		} finally {
+			// Steps to clear the stage (Post steps)
+		}
+
+		log.info("[log-TestSet] " + this.getClass().getName() + " - End test method: " + method.getName());
+	}
 
 	// ************************ Methods *************************
 	/**
@@ -1216,5 +1256,35 @@ public class GoogleTestSet extends BasicTestSet {
 				selectDesplegableMainPage.isSelectDesplegableLogoDisplayed());
 
 	}
+	
 
+	/**
+	 * This assertion check if SeleniumEasy logo are displayed
+	 */
+	public void isSeleniumEasyChargeLogoVisible() {
+
+		if (chargeMainPage == null) {
+
+			chargeMainPage = new ChargeMainPage(driver);
+		}
+		assertTrue("Logo SeleniumEasy Charge isn't displayed, it should be displayed",
+				chargeMainPage.isLogoChargeVisible());
+
+	}
+
+	
+	/**
+	 * This assertion check if Omayo logo are displayed
+	 */
+	public void isOmayoLogoPageIsDisplayed() {
+
+		if (uploadWithoutRobot == null) {
+
+			uploadWithoutRobot = new UploadWithoutRobot(driver);
+		}
+		assertTrue("Logo Omayo  isn't displayed, it should be displayed",
+				uploadWithoutRobot.isLogoDisplayedOmayo());
+
+	}
+	
 }

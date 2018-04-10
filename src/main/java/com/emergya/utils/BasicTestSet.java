@@ -1,6 +1,8 @@
 package com.emergya.utils;
 
+import com.emergya.pageobjects.ChargeMainPage;
 import com.emergya.pageobjects.CheckBoxMainPage;
+import com.emergya.pageobjects.DemoMainPage;
 import com.emergya.pageobjects.EmergyaMainPage;
 import com.emergya.pageobjects.GoogleMainPage;
 import com.emergya.pageobjects.JQueryControlGroupMainPage;
@@ -26,6 +28,7 @@ import com.emergya.pageobjects.TestingSliderMainPage;
 import com.emergya.pageobjects.TestingWebMainPage;
 import com.emergya.pageobjects.TwoIframesMainPage;
 import com.emergya.pageobjects.UploadImageMainPage;
+import com.emergya.pageobjects.UploadWithoutRobot;
 import com.emergya.pageobjects.WidgetColorMainPage;
 import com.emergya.selenium.testSet.DefaultTestSet;
 
@@ -62,5 +65,8 @@ public abstract class BasicTestSet extends DefaultTestSet {
 	protected ListBoxMainPage listBoxMainPage;
 	protected SelectDateMainPage selectDateMainPage;
 	protected SelectDesplegableMainPage selectDesplegableMainPage;
+	protected ChargeMainPage chargeMainPage;
+	protected DemoMainPage demoMainPage;
+	protected UploadWithoutRobot uploadWithoutRobot;
 
 }

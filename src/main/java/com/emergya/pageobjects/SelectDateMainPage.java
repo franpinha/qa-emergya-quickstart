@@ -1,6 +1,5 @@
 package com.emergya.pageobjects;
 
-import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -37,7 +36,7 @@ public class SelectDateMainPage extends BasePageObject {
 	 * 
 	 * @return boolean
 	 */
-	
+
 	public boolean isSeleniumEasyLogoPageDisplayed() {
 
 		log.info(com.emergya.utils.MyBasePageObject.CONSTANTPAGEOBJECT + this.getClass().getSimpleName()
@@ -49,11 +48,11 @@ public class SelectDateMainPage extends BasePageObject {
 		return this.isElementVisibleById(LOGO);
 
 	}
-	
+
 	public Date obtainDateToday() {
-		
+
 		Calendar dateToday = Calendar.getInstance();
-		
+
 		dateToday.get(Calendar.YEAR);
 		dateToday.get(Calendar.MONTH);
 

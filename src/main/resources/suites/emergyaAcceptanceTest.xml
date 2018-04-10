@@ -36,7 +36,10 @@
 					<!-- <include name="playWithTwoIframes" /> -->
 					<!-- <include name="listBoxSelect" /> -->
 					<!-- <include name="selectDatePicker" /> -->
-					<include name="selectDesplegableVarious" />
+					<!-- <include name="selectDesplegableVarious" /> -->
+					<!-- <include name="controlChargePercentage" /> -->
+					<include name="uploadArchiveWithoutRobot" />
+					
 
 
 
